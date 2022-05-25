@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sphere.ApiGateway.API.Tests", "Sphere.ApiGateway.API.Tests\Sphere.ApiGateway.API.Tests.csproj", "{43928BAD-C0EB-41D0-93CF-BDA5EFBC101D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sphere.ApiGateway.API", "Sphere.ApiGateway.API\Sphere.ApiGateway.API.csproj", "{309E479A-ABCF-40EC-AE4B-93AE7EBF4DFE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{43928BAD-C0EB-41D0-93CF-BDA5EFBC101D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43928BAD-C0EB-41D0-93CF-BDA5EFBC101D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43928BAD-C0EB-41D0-93CF-BDA5EFBC101D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43928BAD-C0EB-41D0-93CF-BDA5EFBC101D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{309E479A-ABCF-40EC-AE4B-93AE7EBF4DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{309E479A-ABCF-40EC-AE4B-93AE7EBF4DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{309E479A-ABCF-40EC-AE4B-93AE7EBF4DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{309E479A-ABCF-40EC-AE4B-93AE7EBF4DFE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8FE9E5EA-7008-4CD1-ADDB-FA268820A472}
+	EndGlobalSection
+EndGlobal
