@@ -1,25 +1,56 @@
-var builder = WebApplication.CreateBuilder(args);
+using Consul;
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
+using Ocelot.Provider.Consul;
 
-// Add services to the container.
+using var client = new ConsulClient();
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+var registration = new AgentServiceRegistration
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    ID = Guid.NewGuid().ToString(),
+    Name = "apigateway",
+    Port = 5202,
+    Address = "localhost",
+};
 
-app.UseHttpsRedirection();
+var result = await client.Agent.ServiceRegister(registration);
 
-app.UseAuthorization();
+new WebHostBuilder()
+    .UseKestrel()
+    .UseContentRoot(Directory.GetCurrentDirectory())
+    .ConfigureAppConfiguration((hostingContext, config) =>
+    {
+        config
+         .SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
+         .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+         .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", optional: true, reloadOnChange: true)
+         .AddJsonFile("ocelot.json", optional: false, reloadOnChange: true)
+         .AddCommandLine(args)
+         .AddEnvironmentVariables();
+    })
+    .ConfigureServices(s =>
+    {
+        s.AddOcelot()
+        .AddConsul()
+        .AddConfigStoredInConsul();
+    })
+    .ConfigureLogging((hostingContext, logging) =>
+    {
+        logging.AddConsole();
+    })
+    .Configure(app =>
+    {
+        app.Map("/test", app2 =>
+        {
+            app2.Run(async context =>
+            {
+                await context.Response.WriteAsync("Hello world!");
+            });
+        });
 
-app.MapControllers();
+        app.UseOcelot().Wait();
+    })
+    .Build()
+    .Run();
 
-app.Run();
+await client.Agent.ServiceDeregister(registration.ID);
