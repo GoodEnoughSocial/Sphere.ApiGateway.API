@@ -1,10 +1,100 @@
 {
   "Routes": [
     {
-      "UpstreamPathTemplate": "/auth2",
-      "DownstreamPathTemplate": "/test",
+      "UpstreamPathTemplate": "/v1/auth",
+      "DownstreamPathTemplate": "/",
       "DownstreamScheme": "http",
-      "ServiceName": "apigateway",
+      "ServiceName": "authV1",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/v1/accounts",
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "ServiceName": "accountsV1",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/v1/admin",
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "ServiceName": "adminV1",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/v1/branding",
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "ServiceName": "brandingV1",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/v1/health",
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "ServiceName": "healthV1",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/v1/media",
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "ServiceName": "mediaV1",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/v1/messages",
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "ServiceName": "messagesV1",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/v1/profiles",
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "ServiceName": "profilesV1",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/v1/relationships",
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "ServiceName": "relationshipsV1",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/v1/spheres",
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "ServiceName": "spheresV1",
+      "LoadBalancerOptions": {
+        "Type": "LeastConnection"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/v1/timeline",
+      "DownstreamPathTemplate": "/",
+      "DownstreamScheme": "http",
+      "ServiceName": "timelineV1",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
