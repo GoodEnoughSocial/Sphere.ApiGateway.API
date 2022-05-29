@@ -1,4 +1,5 @@
 using Consul;
+using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Consul;
@@ -9,7 +10,7 @@ var registration = new AgentServiceRegistration
 {
     ID = Guid.NewGuid().ToString(),
     Name = "apigateway",
-    Port = 5202,
+    Port = 5003,
     Address = "localhost",
 };
 
@@ -40,14 +41,6 @@ new WebHostBuilder()
     })
     .Configure(app =>
     {
-        app.Map("/test", app2 =>
-        {
-            app2.Run(async context =>
-            {
-                await context.Response.WriteAsync("Hello world!");
-            });
-        });
-
         app.UseOcelot().Wait();
     })
     .Build()

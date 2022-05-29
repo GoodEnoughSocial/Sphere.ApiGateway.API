@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Sphere.ApiGateway.API.Controllers;
 
 [ApiController]
 [Route("[controller]")]
+[Authorize]
 public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries = new[]
@@ -16,6 +18,12 @@ public class WeatherForecastController : ControllerBase
     public WeatherForecastController(ILogger<WeatherForecastController> logger)
     {
         _logger = logger;
+    }
+
+    [HttpGet("Test")]
+    public IActionResult GetTest()
+    {
+        return new JsonResult(from c in User.Claims select new { c.Type, c.Value });
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
