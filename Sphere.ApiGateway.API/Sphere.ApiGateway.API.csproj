@@ -8,4 +8,9 @@
     <PackageReference Include="Ocelot.Provider.Polly" Version="18.0.0" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Sphere.Shared\Sphere.Shared\Sphere.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
