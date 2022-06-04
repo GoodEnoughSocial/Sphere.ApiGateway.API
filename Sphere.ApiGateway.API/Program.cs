@@ -29,16 +29,19 @@ try
         })
         .ConfigureServices(s =>
         {
+            s.AddHealthChecks();
+
             s.AddOcelot()
             .AddConsul()
             .AddConfigStoredInConsul();
         })
         .ConfigureLogging((hostingContext, logging) =>
         {
-            logging.AddConsole();
+            logging.AddSerilog(Log.Logger);
         })
         .Configure(app =>
         {
+            //app.MapHealthChecks("/health");
             app.UseOcelot().Wait();
         })
         .Build()

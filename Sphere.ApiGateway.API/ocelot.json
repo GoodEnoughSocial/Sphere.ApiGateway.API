@@ -1,99 +1,99 @@
 {
   "Routes": [
     {
-      "UpstreamPathTemplate": "/v1/auth",
-      "DownstreamPathTemplate": "/",
-      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/v1/auth/{path}",
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "https",
       "ServiceName": "authV1",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
     },
     {
-      "UpstreamPathTemplate": "/v1/accounts",
-      "DownstreamPathTemplate": "/",
-      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/v1/accounts/{path}",
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "https",
       "ServiceName": "accountsV1",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
     },
     {
-      "UpstreamPathTemplate": "/v1/admin",
-      "DownstreamPathTemplate": "/",
-      "DownstreamScheme": "http",
-      "ServiceName": "adminV1",
+      "UpstreamPathTemplate": "/v1/admin/{path}",
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "https",
+      "ServiceName": "administrationV1",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
     },
     {
-      "UpstreamPathTemplate": "/v1/branding",
-      "DownstreamPathTemplate": "/",
-      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/v1/branding/{path}",
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "https",
       "ServiceName": "brandingV1",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
     },
     {
-      "UpstreamPathTemplate": "/v1/health",
-      "DownstreamPathTemplate": "/",
-      "DownstreamScheme": "http",
-      "ServiceName": "healthV1",
+      "UpstreamPathTemplate": "/v1/health/{path}",
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "https",
+      "ServiceName": "HealthV1",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
     },
     {
-      "UpstreamPathTemplate": "/v1/media",
-      "DownstreamPathTemplate": "/",
-      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/v1/media/{path}",
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "https",
       "ServiceName": "mediaV1",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
     },
     {
-      "UpstreamPathTemplate": "/v1/messages",
-      "DownstreamPathTemplate": "/",
-      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/v1/messages/{path}",
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "https",
       "ServiceName": "messagesV1",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
     },
     {
-      "UpstreamPathTemplate": "/v1/profiles",
-      "DownstreamPathTemplate": "/",
-      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/v1/profiles/{path}",
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "https",
       "ServiceName": "profilesV1",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
     },
     {
-      "UpstreamPathTemplate": "/v1/relationships",
-      "DownstreamPathTemplate": "/",
-      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/v1/relationships/{path}",
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "https",
       "ServiceName": "relationshipsV1",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
     },
     {
-      "UpstreamPathTemplate": "/v1/spheres",
-      "DownstreamPathTemplate": "/",
-      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/v1/spheres/{path}",
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "https",
       "ServiceName": "spheresV1",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
       }
     },
     {
-      "UpstreamPathTemplate": "/v1/timeline",
-      "DownstreamPathTemplate": "/",
-      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/v1/timeline/{path}",
+      "DownstreamPathTemplate": "/{path}",
+      "DownstreamScheme": "https",
       "ServiceName": "timelineV1",
       "LoadBalancerOptions": {
         "Type": "LeastConnection"
