@@ -10,6 +10,7 @@
 
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Sphere.Interfaces\Sphere.Interfaces.csproj" />
     <ProjectReference Include="..\..\Sphere.Shared\Sphere.Shared\Sphere.Shared.csproj" />
   </ItemGroup>
 

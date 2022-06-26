@@ -1,3 +1,4 @@
+using Microsoft.Extensions.DependencyInjection;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using Ocelot.Provider.Consul;
@@ -26,6 +27,7 @@ try
         })
         .ConfigureServices(s =>
         {
+            s.AddInjectableOrleansClient();
             s.AddHealthChecks();
 
             s.AddOcelot()
