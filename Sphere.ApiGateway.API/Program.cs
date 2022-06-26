@@ -4,16 +4,13 @@ using Ocelot.Provider.Consul;
 using Serilog;
 using Sphere.Shared;
 
-Log.Logger = SphericalLogger.SetupLogger();
+// Setting this allows us to get some benefits all over the place.
+Services.Current = Services.ApiGateway;
 
-Log.Information("Starting up");
-
-var registration = Services.ApiGateway.GetServiceRegistration();
+Log.Logger = SphericalLogger.StartupLogger(Services.Current);
 
 try
 {
-    var result = await Services.RegisterService(registration);
-
     new WebHostBuilder()
         .UseKestrel()
         .UseContentRoot(Directory.GetCurrentDirectory())
@@ -41,7 +38,7 @@ try
         })
         .Configure(app =>
         {
-            //app.MapHealthChecks("/health");
+            //app.MapHealthChecks(Constants.HealthCheckEndpoint);
             app.UseOcelot().Wait();
         })
         .Build()
@@ -56,8 +53,6 @@ catch (Exception ex)
 }
 finally
 {
-    await Services.UnregisterService(registration);
-
     Log.Information("Shutting down");
     Log.CloseAndFlush();
 }
